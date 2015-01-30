@@ -5,10 +5,10 @@ describe(Venue) do
   it{should validate_presence_of(:name)}
   it{should validate_uniqueness_of(:name)}
 
-  describe(:titlecase_venue_name) do
-    it("will titlecase venue name") do
+  describe(:capitalize_venue_name) do
+    it("will capitalize first letter of venue name") do
       venue1 = Venue.create({:name => "music hall of williamsburg"})
-      expect(venue1.name()).to(eq("Music Hall Of Williamsburg"))
+      expect(venue1.name()).to(eq("Music hall of williamsburg"))
     end
   end
 

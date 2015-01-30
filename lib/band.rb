@@ -2,7 +2,7 @@ class Band < ActiveRecord::Base
   has_and_belongs_to_many :venues, -> {order('name')}
   validates(:name, {:presence => true})
   validates_uniqueness_of(:name, {:case_sensitive => false})
-  before_save(:titlecase_band_name)
+  before_save(:capitalize_band_name)
   Band.order('name')
 
   default_scope {order('name')}
@@ -16,8 +16,8 @@ class Band < ActiveRecord::Base
 
   private
 
-  define_method(:titlecase_band_name) do
-    self.name=(name().titlecase())
+  define_method(:capitalize_band_name) do
+    self.name[0]=(name[0].capitalize())
   end
 
 end
