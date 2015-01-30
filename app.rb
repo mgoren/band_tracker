@@ -4,7 +4,8 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get("/") do
-  erb(:index)
+  @bands = Band.all()
+  erb(:bands)
 end
 
 get("/bands") do
@@ -40,7 +41,10 @@ end
 
 patch("/bands/:id") do
   band = Band.find(params.fetch('id').to_i())
-  band.add_venues(params.fetch('venue_ids'))
+  venue_ids = params['venue_ids']
+  if venue_ids
+    band.add_venues(params.fetch('venue_ids'))
+  end
   redirect back
 end
 
@@ -50,3 +54,9 @@ delete("/bands/:id") do
   redirect("/bands")
 end
 
+patch("/venues/:id") do
+  venue = Venue.find(params.fetch('id').to_i())
+  band = Band.find(params.fetch('band_id').to_i())
+  venue.bands.delete(band)
+  redirect back
+end

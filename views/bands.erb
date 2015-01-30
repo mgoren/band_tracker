@@ -1,3 +1,10 @@
+<h1>
+  Band Tracker<br>
+  <small>
+  All Bands
+  </small>
+</h1>
+
 <% if @bands.any?() %>
   <ul>
     <% @bands.each() do |band| %>
@@ -13,8 +20,8 @@
     <label class="form-label" for="name">Add new band:</label>
     <input class="form-control" id="name" type="text" name="name" autofocus>
   </div>
-  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Add Band</button>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Band</button>
 </form>
 
 <hr>
-<a href="/">Back</a>
+<a href="/venues">Venues</a>

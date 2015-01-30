@@ -4,7 +4,13 @@
   <h2>Venues assigned to this band:</h2>
   <ul>
   <% @band.venues().each() do |venue| %>
-    <li><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a></li>
+    <li><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a> 
+    <form class="band-list" action="/venues/<%= venue.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="band_id" value="<%= @band.id() %>">
+      <button type="submit" class="btn-remove"><i class="fa fa-times"></i></button>
+    </form>
+    </li>
   <% end %>
   </ul>
 <% else %>
