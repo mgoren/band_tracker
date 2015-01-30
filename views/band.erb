@@ -1,10 +1,10 @@
 <h1><%= @band.name() %></h1>
 
 <% if @band.venues().any?() %>
-  Venues assigned to this band:
+  <h2>Venues assigned to this band:</h2>
   <ul>
   <% @band.venues().each() do |venue| %>
-    <li><%= venue.name() %></li>
+    <li><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a></li>
   <% end %>
   </ul>
 <% else %>
@@ -27,3 +27,6 @@
     <button type="submit">Add Venue</button>
   </form>
 <% end %>
+
+<hr>
+<a href="/bands">All bands</a>
