@@ -7,6 +7,12 @@ class Band < ActiveRecord::Base
 
   default_scope {order('name')}
 
+  define_method(:add_venues) do |venue_ids|
+    venue_ids.each() do |venue_id|
+      self.venues << Venue.find(venue_id.to_i())
+    end
+  end
+
 
   private
 
