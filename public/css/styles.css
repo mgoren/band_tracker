@@ -3,12 +3,22 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+section {
+  clear: both;
+  padding: 15px 0;
+}
+
 h1 {
   text-align: center;
   font-family: 'Merriweather', serif;
   font-size: 48px;
 }
 
+h2 {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+}
 ul {
   list-style: none;
   margin: 0 0 1em 0;
@@ -48,21 +58,31 @@ ul {
   transition-duration: .1s;
 
   display: inline-block;
-  margin-left: 10px;
   width: 50%;
 
 }
 
+input:hover,
+input:active,
+input:focus,
+textarea:hover,
+textarea:active,
+textarea:focus {
+  border-bottom-color: #0e745c;
+  box-shadow: 0 2px 1px -1px #d0dad8;
+}
+
+
 .form-label {
   float: left;
-  width: 120px;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
 }
 
 .form-control {
   float: left;
-  width: 400px;
-  margin-right: 20px;
+  width: 550px;
+  margin-right: 10px;
 }
 
 .btn {
@@ -85,3 +105,80 @@ hr {
   margin: 0 5px;
   padding: 0;
 }
+
+header,
+footer {
+  text-align: center;
+}
+
+header {
+  height: auto;
+  border-bottom: 1px dashed #d0dad8;
+}
+
+footer {
+  padding-top: 10px;
+  height: 4rem;
+  border-top: 1px dashed #d0dad8;
+}
+
+a {
+  border-color: #d0dad8;
+  color: #0e745c;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
+}
+  a:hover,
+  a:active,
+  a:focus {
+    border-color: #0e745c;
+  }
+  a::before {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: .125em;
+    color: #d0dad8;
+    font-family: FontAwesome;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 100;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+  }
+    a:hover::before,
+    a:active::before,
+    a:focus::before {
+      color: #0e745c;
+    }
+    a[title="Permalink"]::before {
+      content: "\f0c1";
+      line-height: 1.625rem;
+    }
+    address a::before {
+      content: "\f041";
+    }
+    a[href^="mailto:"]::before {
+      content: "\f0e0";
+    }
+    a[href*="facebook.com"]::before {
+      content: "\f09a";
+    }
+    a[href*="twitter.com"]::before {
+      content: "\f099";
+    }
+    a[href*="instagram.com"]::before {
+      content: "\f16d";
+    }
+    a[href*="pinterest.com"]::before {
+      content: "\f0d2";
+    }
+    a[href*="plus.google.com"]::before {
+      content: "\f0d5";
+    }
+    a[href*="youtube.com"]::before {
+      content: "\f167";
+    }
+    a[href*="github.com"]::before {
+      content: "\f09b";
+    }
+

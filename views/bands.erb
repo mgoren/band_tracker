@@ -1,27 +1,32 @@
-<h1>
-  Band Tracker<br>
-  <small>
-  All Bands
-  </small>
-</h1>
+<h2>All Bands</h2>
 
-<% if @bands.any?() %>
-  <ul>
-    <% @bands.each() do |band| %>
-      <li><a href="/bands/<%= band.id() %>"><%= band.name() %></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  I don't know about any bands. Add one below!
-<% end %>
+<section>
+  <% if @bands.any?() %>
+    <ul>
+      <% @bands.each() do |band| %>
+        <li><a href="/bands/<%= band.id() %>"><%= band.name() %></a>
+          <form class="band-list" action="/bands/<%= band.id() %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn-remove"><i class="fa fa-times"></i></button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    I don't know about any bands.&nbsp; Add one below!
+  <% end %>
+</section>
 
-<form action="/bands" method="post">
-  <div class="form-group">
-    <label class="form-label" for="name">Add new band:</label>
-    <input class="form-control" id="name" type="text" name="name" autofocus>
-  </div>
-  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Band</button>
-</form>
+<section>
+  <form action="/bands" method="post">
+    <div class="form-group">
+      <label class="form-label" for="name">Add new band:</label>
+      <input class="form-control" id="name" type="text" name="name">
+    </div>
+    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Band</button>
+  </form>
+</section>
 
-<hr>
-<a href="/venues">Venues</a>
+<section>
+  <a href="/venues">Venues</a>
+</section>

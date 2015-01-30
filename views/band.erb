@@ -1,15 +1,16 @@
 <h1><%= @band.name() %></h1>
 
 <% if @band.venues().any?() %>
-  <h2>Venues assigned to this band:</h2>
+  <h3>Venues assigned to this band:</h3>
   <ul>
   <% @band.venues().each() do |venue| %>
-    <li><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a> 
+    <li>
     <form class="band-list" action="/venues/<%= venue.id() %>" method="post">
       <input type="hidden" name="_method" value="patch">
       <input type="hidden" name="band_id" value="<%= @band.id() %>">
-      <button type="submit" class="btn-remove"><i class="fa fa-times"></i></button>
+      <button type="submit" class="btn-remove"><i class="fa fa-minus-circle"></i></button>
     </form>
+    <a href="/venues/<%= venue.id() %>"><%= venue.name() %></a> 
     </li>
   <% end %>
   </ul>
@@ -20,7 +21,7 @@
 <hr>
 
 <% if @band.venues() != @venues %>
-  <h2>Add venues for this band:</h2>
+  <h3>Add venues for this band:</h3>
   <form action="/bands/<%= @band.id() %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <% @venues.each() do |venue| %>

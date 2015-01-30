@@ -54,6 +54,12 @@ delete("/bands/:id") do
   redirect("/bands")
 end
 
+delete("/venues/:id") do
+  venue = Venue.find(params.fetch('id').to_i())
+  venue.destroy()
+  redirect("/venues")
+end
+
 patch("/venues/:id") do
   venue = Venue.find(params.fetch('id').to_i())
   band = Band.find(params.fetch('band_id').to_i())
