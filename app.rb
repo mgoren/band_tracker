@@ -42,8 +42,12 @@ end
 patch("/bands/:id") do
   band = Band.find(params.fetch('id').to_i())
   venue_ids = params['venue_ids']
+  name = params['name']
   if venue_ids
     band.add_venues(params.fetch('venue_ids'))
+  end
+  if name
+    band.update({:name => name})
   end
   redirect back
 end

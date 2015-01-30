@@ -1,46 +1,60 @@
-<h1><%= @band.name() %></h1>
+<h2><%= @band.name() %></h2>
 
-<% if @band.venues().any?() %>
-  <h3>Venues assigned to this band:</h3>
-  <ul>
-  <% @band.venues().each() do |venue| %>
-    <li>
-    <form class="band-list" action="/venues/<%= venue.id() %>" method="post">
-      <input type="hidden" name="_method" value="patch">
-      <input type="hidden" name="band_id" value="<%= @band.id() %>">
-      <button type="submit" class="btn-remove"><i class="fa fa-minus-circle"></i></button>
-    </form>
-    <a href="/venues/<%= venue.id() %>"><%= venue.name() %></a> 
-    </li>
+<section>
+  <% if @band.venues().any?() %>
+    <h3>Venues assigned to this band:</h3>
+    <ul>
+    <% @band.venues().each() do |venue| %>
+      <li>
+      <form class="band-list" action="/venues/<%= venue.id() %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="band_id" value="<%= @band.id() %>">
+        <button type="submit" class="btn-remove"><i class="fa fa-minus-circle"></i></button>
+      </form>
+      <a href="/venues/<%= venue.id() %>"><%= venue.name() %></a> 
+      </li>
+    <% end %>
+    </ul>
+  <% else %>
+    This band has never played anywhere!
   <% end %>
-  </ul>
-<% else %>
-  This band has never played anywhere!
-<% end %>
+</section>
 
-<hr>
+<section>
+  <% if @band.venues() != @venues %>
+    <h3>Add venues for this band:</h3>
+    <form action="/bands/<%= @band.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <% @venues.each() do |venue| %>
+        <% if ! @band.venues().include?(venue) %>
+          <div class="checkbox">
+            <label><input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %></label><br>
+          </div>
+        <% end %>
+      <% end %>
+      <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
+    </form>
+  <% end %>
+</section>
 
-<% if @band.venues() != @venues %>
-  <h3>Add venues for this band:</h3>
+<section>
+  <h3>Change band name:</h3>
   <form action="/bands/<%= @band.id() %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <% @venues.each() do |venue| %>
-      <% if ! @band.venues().include?(venue) %>
-        <div class="checkbox">
-          <label><input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %></label><br>
-        </div>
-      <% end %>
-    <% end %>
-    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
+    <div class="form-group">
+      <input class="form-control" id="name" type="text" name="name" value="<%= @band.name() %>">
+    </div>
+    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-wrench"></span>&nbsp; Change name</button>
   </form>
-<% end %>
+</section>
 
-<hr>
+<section>
+  <form action="/bands/<%= @band.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete Band</button>
+  </form>
+</section>
 
-<form action="/bands/<%= @band.id() %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete Band</button>
-</form>
-
-<hr>
-<a href="/bands">All bands</a>
+<section>
+  <a href="/bands">All bands</a>
+</section>

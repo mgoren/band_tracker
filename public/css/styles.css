@@ -43,7 +43,7 @@ ul {
   width: 150px;
 }
 
-.form-control {
+input, .form-control {
   appearance: none;
   font-family: inherit;
   font-size: inherit;
@@ -182,3 +182,15 @@ a {
       content: "\f09b";
     }
 
+fieldset {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+  fieldset * {
+    width: 100%;
+    margin: auto auto 1.5rem;
+  }
+  fieldset legend {
+    margin-bottom: .25rem;
+  }
