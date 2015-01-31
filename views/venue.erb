@@ -1,7 +1,7 @@
 <h2><%= @venue.name() %></h2>
 
 <% if @venue.bands().any?() %>
-  <h2>Bands associated with this venue:</h2>
+  <h3>Bands that have played this venue:</h3>
   <ul>
   <% @venue.bands().each() do |band| %>
     <li><a href="/bands/<%= band.id() %>"><%= band.name() %></a></li>
@@ -10,6 +10,3 @@
 <% else %>
   This venue is very boring.
 <% end %>
-
-<hr>
-<a href="/venues">All venues</a>

@@ -1,6 +1,5 @@
-<h2>All Venues</h2>
-
 <section>
+  <h2>All Venues</h2>
   <% if @venues.any?() %>
     <ul>
       <% @venues.each() do |venue| %>
@@ -18,15 +17,11 @@
 </section>
 
 <section>
+  <h3>Add new venue:</h3>
   <form action="/venues" method="post">
     <div class="form-group">
-      <label class="form-label" for="name">Add new venue:</label>
       <input class="form-control" id="name" type="text" name="name">
     </div>
-    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
+    <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
   </form>
-</section>
-
-<section>
-  <a href="/bands">Bands</a>
 </section>

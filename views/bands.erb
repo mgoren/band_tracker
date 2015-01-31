@@ -1,6 +1,5 @@
-<h2>All Bands</h2>
-
 <section>
+  <h2>All Bands</h2>
   <% if @bands.any?() %>
     <ul>
       <% @bands.each() do |band| %>
@@ -18,15 +17,11 @@
 </section>
 
 <section>
+  <h3>Add new band:</h3>
   <form action="/bands" method="post">
     <div class="form-group">
-      <label class="form-label" for="name">Add new band:</label>
       <input class="form-control" id="name" type="text" name="name">
     </div>
-    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Band</button>
+    <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Band</button>
   </form>
-</section>
-
-<section>
-  <a href="/venues">Venues</a>
 </section>

@@ -2,7 +2,7 @@
 
 <section>
   <% if @band.venues().any?() %>
-    <h3>Venues assigned to this band:</h3>
+    <h3>Venues played by this band:</h3>
     <ul>
     <% @band.venues().each() do |venue| %>
       <li>
@@ -23,7 +23,7 @@
 <section>
   <% if @band.venues() != @venues %>
     <h3>Add venues for this band:</h3>
-    <form action="/bands/<%= @band.id() %>" method="post">
+    <form class="padding-bottom" action="/bands/<%= @band.id() %>" method="post">
       <input type="hidden" name="_method" value="patch">
       <% @venues.each() do |venue| %>
         <% if ! @band.venues().include?(venue) %>
@@ -32,7 +32,7 @@
           </div>
         <% end %>
       <% end %>
-      <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
+      <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Venue</button>
     </form>
   <% end %>
 </section>
@@ -44,17 +44,13 @@
     <div class="form-group">
       <input class="form-control" id="name" type="text" name="name" value="<%= @band.name() %>">
     </div>
-    <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-wrench"></span>&nbsp; Change name</button>
+    <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-wrench"></span>&nbsp; Change name</button>
   </form>
 </section>
 
-<section>
+<section id="delete_band">
   <form action="/bands/<%= @band.id() %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete Band</button>
   </form>
-</section>
-
-<section>
-  <a href="/bands">All bands</a>
 </section>

@@ -1,11 +1,13 @@
 body {
-  background-color: #7F82B2;
+  background-color: #B5AACF;
   font-family: 'Lato', sans-serif;
 }
 
-section {
+section + section {
   clear: both;
   padding: 15px 0;
+  border-top: 1px dashed #BFA6CC;
+  margin-top: 15px;
 }
 
 h1 {
@@ -16,9 +18,13 @@ h1 {
 
 h2 {
   text-align: center;
-  font-family: 'Merriweather', serif;
-  font-size: 30px;
+  font-size: 24px;
 }
+
+h3 {
+  font-size: 16px;
+}
+
 ul {
   list-style: none;
   margin: 0 0 1em 0;
@@ -28,7 +34,7 @@ ul {
 .container {
   background-color: #FFE4CC;
   width: 800px;
-  margin: 50px auto 0 auto;
+  margin: 1em auto;
   padding: 15px;
   border: 3px solid gray;
   border-radius: 15px;
@@ -81,18 +87,14 @@ textarea:focus {
 
 .form-control {
   float: left;
-  width: 550px;
+  width: 630px;
   margin-right: 10px;
 }
+
 
 .btn {
   display: inline;
   float: left;
-}
-
-hr {
-  opacity: 0;
-  clear: both;
 }
 
 .band-list {
@@ -108,23 +110,18 @@ hr {
 
 header,
 footer {
+  clear: both;
   text-align: center;
 }
 
 header {
   height: auto;
-  border-bottom: 1px dashed #d0dad8;
-}
-
-footer {
-  padding-top: 10px;
-  height: 4rem;
-  border-top: 1px dashed #d0dad8;
+  border-bottom: 1px dashed #BFA6CC;
 }
 
 a {
   border-color: #d0dad8;
-  color: #0e745c;
+  color: #432F75;
   -webkit-transition-duration: .1s;
           transition-duration: .1s;
 }
@@ -194,3 +191,13 @@ fieldset {
   fieldset legend {
     margin-bottom: .25rem;
   }
+
+#delete_band {
+  border-top: 1px dashed #d0dad8;
+  margin-top: 50px;
+  margin-left: 330px;
+}
+
+.padding-bottom {
+  padding-bottom: 25px;
+}
