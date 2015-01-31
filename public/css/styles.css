@@ -10,9 +10,16 @@ section + section {
   margin-top: 15px;
 }
 
+header {
+  height: auto;
+  border-bottom: 1px dashed #BFA6CC;
+  text-align: center;
+
+}
+
 h1 {
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 48px;
 }
 
@@ -40,15 +47,6 @@ ul {
   border-radius: 15px;
 }
 
-.rating {
-  display: inline;
-}
-
-.recipe_name {
-  display: inline-block;
-  width: 150px;
-}
-
 input, .form-control {
   appearance: none;
   font-family: inherit;
@@ -64,7 +62,6 @@ input, .form-control {
   transition-duration: .1s;
 
   display: inline-block;
-  width: 50%;
 
 }
 
@@ -87,36 +84,25 @@ textarea:focus {
 
 .form-control {
   float: left;
-  width: 630px;
   margin-right: 10px;
 }
 
+
+.band-list {
+  display: inline;
+}
 
 .btn {
   display: inline;
   float: left;
 }
 
-.band-list {
-  display: inline;
-}
 .btn-remove {
   background-color: transparent;
   box-shadow: none;
   border: none;
   margin: 0 5px;
   padding: 0;
-}
-
-header,
-footer {
-  clear: both;
-  text-align: center;
-}
-
-header {
-  height: auto;
-  border-bottom: 1px dashed #BFA6CC;
 }
 
 a {
@@ -147,50 +133,6 @@ a {
     a:focus::before {
       color: #0e745c;
     }
-    a[title="Permalink"]::before {
-      content: "\f0c1";
-      line-height: 1.625rem;
-    }
-    address a::before {
-      content: "\f041";
-    }
-    a[href^="mailto:"]::before {
-      content: "\f0e0";
-    }
-    a[href*="facebook.com"]::before {
-      content: "\f09a";
-    }
-    a[href*="twitter.com"]::before {
-      content: "\f099";
-    }
-    a[href*="instagram.com"]::before {
-      content: "\f16d";
-    }
-    a[href*="pinterest.com"]::before {
-      content: "\f0d2";
-    }
-    a[href*="plus.google.com"]::before {
-      content: "\f0d5";
-    }
-    a[href*="youtube.com"]::before {
-      content: "\f167";
-    }
-    a[href*="github.com"]::before {
-      content: "\f09b";
-    }
-
-fieldset {
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-  fieldset * {
-    width: 100%;
-    margin: auto auto 1.5rem;
-  }
-  fieldset legend {
-    margin-bottom: .25rem;
-  }
 
 #delete_band {
   border-top: 1px dashed #d0dad8;
@@ -200,4 +142,12 @@ fieldset {
 
 .padding-bottom {
   padding-bottom: 25px;
+}
+
+.input_change_band_name {
+  width: 640px;
+}
+
+.input_new_name {
+  width: 655px;
 }

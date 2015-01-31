@@ -41,10 +41,11 @@
   <h3>Change band name:</h3>
   <form action="/bands/<%= @band.id() %>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <div class="form-group">
-      <input class="form-control" id="name" type="text" name="name" value="<%= @band.name() %>">
+    <div class="input-append">
+      <input class="form-control input_change_band_name" id="name" type="text" name="name" value="<%= @band.name() %>">
+      <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-wrench"></span>&nbsp; Change name</button>
     </div>
-    <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-wrench"></span>&nbsp; Change name</button>
+    
   </form>
 </section>
 
